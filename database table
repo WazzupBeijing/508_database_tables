@@ -8,10 +8,22 @@ CREATE TABLE Emergency_Contact (
     EC_AdPstCd VARCHAR2(20),
     EC_Ph VARCHAR2(20),
     EC_Relationship VARCHAR2(50),
-    StudentStud_ID NUMBER
+    Stud_ID NUMBER
 );
 
 ALTER TABLE Emergency_Contact
-ADD CONSTRAINT fk_StudentStud_ID
-FOREIGN KEY (StudentStud_ID)
+ADD CONSTRAINT fk_Stud_ID
+FOREIGN KEY (Stud_ID)
 REFERENCES Student (Stud_ID);
+
+//DEPARTMENT TABLE
+
+CREATE TABLE Department (
+    Dep_Code VARCHAR2(10) PRIMARY KEY,
+    Dep_Name VARCHAR2(100),
+    Dep_PhNo VARCHAR2(20),
+    Dep_Loc VARCHAR2(100),
+    Dep_HeadStart DATE,
+    Dep_HeadID VARCHAR2(10)
+);
+
