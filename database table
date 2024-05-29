@@ -26,3 +26,14 @@ ALTER TABLE Emergency_Contact
 ADD CONSTRAINT fk_StudentStud_ID
 FOREIGN KEY (StudentStud_ID)
 REFERENCES Student (Stud_ID);
+
+//DEPARTMENT TABLE
+
+CREATE TABLE Department (
+    Dep_Code VARCHAR2(10) PRIMARY KEY,
+    Dep_Name VARCHAR2(100),
+    Dep_PhNo VARCHAR2(20),
+    Dep_Loc VARCHAR2(100),
+    Dep_HeadStart DATE,
+    Dep_HeadID VARCHAR2(10)
+);
