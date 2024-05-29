@@ -1,0 +1,17 @@
+//EMERGENCT CONTACT TABLE
+
+CREATE TABLE Emergency_Contact (
+    EC_FName VARCHAR2(50),
+    EC_LName VARCHAR2(50),
+    EC_AdSt VARCHAR2(100),
+    EC_AdTwn VARCHAR2(100),
+    EC_AdPstCd VARCHAR2(20),
+    EC_Ph VARCHAR2(20),
+    EC_Relationship VARCHAR2(50),
+    StudentStud_ID NUMBER
+);
+
+ALTER TABLE Emergency_Contact
+ADD CONSTRAINT fk_StudentStud_ID
+FOREIGN KEY (StudentStud_ID)
+REFERENCES Student (Stud_ID);
