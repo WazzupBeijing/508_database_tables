@@ -6,10 +6,21 @@ CREATE TABLE Emergency_Contact (
     EC_AdSt VARCHAR2(100),
     EC_AdTwn VARCHAR2(100),
     EC_AdPstCd VARCHAR2(20),
-    EC_Ph VARCHAR2(20),
+    EC_Ph NUMBER(20),
     EC_Relationship VARCHAR2(50),
-    StudentStud_ID NUMBER
+    StudentStud_ID NUMBER(8)
 );
+
+CREATE TABLE Staff_Details(
+    Staff_NO    NUMBER(4), //FOREIGN KEY
+    Staff_EpSt    DATE,
+    Staff_Gndr    VARCHAR(6),
+    Staff_Slry    NUMBER(6),
+    Staff_Qualf    VARCHAR(20)
+);
+
+CREATE TABLE Academic_Staff(
+    Staff_
 
 ALTER TABLE Emergency_Contact
 ADD CONSTRAINT fk_StudentStud_ID
