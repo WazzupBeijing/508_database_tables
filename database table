@@ -11,29 +11,113 @@ CREATE TABLE Emergency_Contact (
     StudentStud_ID NUMBER(8)
 );
 
+//STAFF DETAILS TABLE
+
 CREATE TABLE Staff_Details(
-    Staff_NO    NUMBER(4), //FOREIGN KEY
+    Staff_No    NUMBER(4), //FOREIGN KEY
     Staff_EpSt    DATE,
     Staff_Gndr    VARCHAR(6),
     Staff_Slry    NUMBER(6),
     Staff_Qualf    VARCHAR(20)
 );
 
+//ACADEMIC STAFF TABLE
 CREATE TABLE Academic_Staff(
-    Staff_
+    Staff_No       NUMBER(3), //PRIMARY KEY
+    Staff_FName    VARCHAR(20),
+    Staff_LName    VARCHAR(20),
+    Staff_PhExt    NUMBER(4),
+    Staff_OffNo    NUMBER(3),
+    Staff_Pos      VARCHAR(20)
+);
+
+//DEPARTMENT TABLE
+
+CREATE TABLE Department (
+    Dep_Code       VARCHAR2(10) PRIMARY KEY,
+    Dep_Name       VARCHAR2(100),
+    Dep_PhNo       VARCHAR2(20),
+    Dep_Loc        VARCHAR2(100),
+    Dep_HeadStart  DATE,
+    Dep_HeadID     VARCHAR2(10)
+    Staff_No       NUMBER(3) //FOREIGN KEY
+);
+
+//PROGRAMME TABLE
+
+CREATE TABLE Programme (
+    Prg_Code    VARCHAR(40), //PRIMARY KEY
+    Prg_DrtrID  NUMBER(3), //UNIQUE, REFERENCES TO STAFF_NO IN SAME TABLE
+    Prg_Lvl     NUMBER(1),
+    Prg_Pts     NUMBER(3),
+    Prg_Duratn  VARCHAR(6),
+    Prg_Cmps    VARCHAR(10),
+    Prg_Semt    VARCHAR(10),
+    Dep_Code    VARCHAR(10), //FOREIGN KEY REFERENCING TO Department
+    Staff_No    NUMBER(3) //FOREIGN KEY REFERENCING TO Academic_Staff
+);
+
+//STAFF HOURS TABLE
+
+CREATE TABLE Staff_Hours_Track(
+    StaffCourse_Hours    NUMBER(2), //Tracked in hours
+    Staff_No             NUMBER(3), //FOREIGN KEY REFERENCING TO STAFF_NO in Academic_Staff
+    Course_Code          <Enter Variable Here>
+);
+
+//COURSE TABLE
+
+CREATE TABLE Course(
+    Course_Code             VARCHAR(8), //PRIMARY KEY
+    Course_Name             VARCHAR(40),
+    Course_Credits          NUMBER(2),
+    Course_CoordinatorID    NUMBER(2) //References itself to Staff_No
+    Staff_No                NUMBER(3) //FOREIGN KEY REFERENCING TO Staff_No in Academic_Staff
+);
+
+//PROGRAMME - COURSE TABLE
+
+CREATE TABLE ProgrammeCourse(
+    Course_Code    VARCHAR(8), //PRIMARY KEY REFERENCING TO Course_Code in Course
+    Prg_Code       VARCHAR(40) //PRIMARY KEY REFERENCING TO Prg_Code in Programme
+);
+
+//STUDENT TABLE
+
+CREATE TABLE Student(
+    Stud_ID        NUMBER(8),
+    Stud_FName     CHAR(20),
+    Stud_LName     CHAR(20),
+    Stud_AdSt      VARCHAR(20),
+    Stud_AdTwn     VARCHAR(20),
+    Stud_AdPstCd   NUMBER(4),
+    Stud_DoB       DATE,
+    Stud_Gender    CHAR(20),
+    Stud_Loan      NUMBER(9),
+    Prg_Code       VARCHAR(40)
+);
+
+//PERFORMANCE TABLE
+
+CREATE TABLE Performance(
+    Stud_ID        NUMBER(8), //PRIMARY KEY REFERENCING TO Stud_ID in Student
+    Course_Code    VARCHAR(8), //FOREIGN KEY REFERENCING TO Course_Code in Course
+    Prg_Code       VARCHAR(20), //FOREIGN KEY REFERENCING TO Prg_Code in Programme
+    Course_Perf    VARCHAR(20)  //FOREIGN KEY REFERENCING TO Course_Perf in StudentCourse
+);
+
+//STUDENT - COURSE TABLE
+
+CREATE TABLE StudentCourse(
+    Course_Perf    VARCHAR(20),  //PRIMARY KEY
+    Stud_ID        NUMBER(8),    //FOREIGN KEY REFERENCING TO Stud_ID in Student
+    Course_Code    VARCHAR(8)    //FOREIGN KEY REFERENCING TO Course_Code in Course
+);
+
 
 ALTER TABLE Emergency_Contact
 ADD CONSTRAINT fk_StudentStud_ID
 FOREIGN KEY (StudentStud_ID)
 REFERENCES Student (Stud_ID);
 
-//DEPARTMENT TABLE
 
-CREATE TABLE Department (
-    Dep_Code VARCHAR2(10) PRIMARY KEY,
-    Dep_Name VARCHAR2(100),
-    Dep_PhNo VARCHAR2(20),
-    Dep_Loc VARCHAR2(100),
-    Dep_HeadStart DATE,
-    Dep_HeadID VARCHAR2(10)
-);
