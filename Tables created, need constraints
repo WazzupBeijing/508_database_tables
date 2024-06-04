@@ -1,0 +1,133 @@
+--EMERGENCY CONTACT TABLE
+
+CREATE TABLE Emergency_Contact (
+    EC_FName         VARCHAR2(50),
+    EC_LName         VARCHAR2(50),
+    EC_AdSt          VARCHAR2(100),
+    EC_AdTwn         VARCHAR2(100),
+    EC_AdPstCd       VARCHAR2(20),
+    EC_Ph            NUMBER(20),
+    EC_Relationship  VARCHAR2(50),
+    ECStud_ID        NUMBER(8)
+    --CONSTRAINT EMC_Stud_ID_FK FOREIGN KEY (Stud_ID) REFERENCES Emergency_Contact (ECStud_ID)
+);
+
+--STAFF DETAILS TABLE
+
+CREATE TABLE Staff_Details(
+    StaffDe_NO    NUMBER(4), --FOREIGN KEY
+    StaffDe_EpSt    DATE,
+    StaffDe_Gndr    VARCHAR(6),
+    StaffDe_Slry    NUMBER(6),
+    StaffDe_Qualf    VARCHAR(20)
+    --CONSTRAINT StaffDetails_Staff_NO_FK FOREIGN KEY (StaffDe_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+--ACADEMIC STAFF TABLE
+CREATE TABLE Academic_Staff(
+    Staff_NO       NUMBER(3) PRIMARY KEY, --PRIMARY KEY
+    Staff_FName    VARCHAR(20),
+    Staff_LName    VARCHAR(20),
+    Staff_PhExt    NUMBER(4),
+    Staff_OffNo    NUMBER(3),
+    Staff_Pos      VARCHAR(20)
+);
+
+--DEPARTMENT TABLE
+
+CREATE TABLE Department (
+    Dep_Code       VARCHAR2(10) PRIMARY KEY,
+    Dep_Name       VARCHAR2(100),
+    Dep_PhNo       VARCHAR2(20),
+    Dep_Loc        VARCHAR2(100),
+    Dep_HeadStart  DATE,
+    Dep_HeadID     VARCHAR2(10) UNIQUE,
+    DepStaff_NO       NUMBER(3) --FOREIGN KEY
+    --CONSTRAINT Dep_StaffNo_FK FOREIGN KEY (DepStaff_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+--PROGRAMME TABLE
+
+CREATE TABLE Programme (
+    Prg_Code    VARCHAR(40) PRIMARY KEY,
+    Prg_DrtrID  NUMBER(3) UNIQUE, --UNIQUE, REFERENCES TO STAFF_NO IN SAME TABLE
+    Prg_Lvl     NUMBER(1),
+    Prg_Pts     NUMBER(3),
+    Prg_Duratn  VARCHAR(6),
+    Prg_Cmps    VARCHAR(10),
+    Prg_Semt    VARCHAR(10),
+    PrgDep_Code    VARCHAR(10), --FOREIGN KEY REFERENCING TO Department
+    PrgStaff_NO    NUMBER(3) --FOREIGN KEY REFERENCING TO Academic_Staff
+    --CONSTRAINT Prg_DepCode_FK FOREIGN KEY (PrgDep_Code) REFERENCES Department (Dep_Code)
+    --CONSTRAINT Prg_Staff_NO_FK FOREIGN KEY (PrgStaff_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+--STAFF HOURS TABLE
+
+CREATE TABLE Staff_Hours_Track(
+    StaffCourse_Hours       NUMBER(2), --Tracked in hours per week
+    SHTStaff_NO             NUMBER(3), --FOREIGN KEY REFERENCING TO STAFF_NO in Academic_Staff
+    SHTCourse_Code          VARCHAR(8) --FOREIGN KEY REFERENCING TO Course_Code in Course
+    --CONSTRAINT SHT_Staff_NO_FK FOREIGN KEY (SHTStaff_NO) REFERENCES Academic_Staff (Staff_NO)
+    --CONSTRAINT SHT_Course_Code_FK FOREIGN KEY (SHTCourse_Code) REFERENCES Course (Course_Code)
+);
+
+--COURSE TABLE
+
+CREATE TABLE Course(
+    Course_Code             VARCHAR(8) PRIMARY KEY, --PRIMARY KEY
+    Course_Name             VARCHAR(40),
+    Course_Credits          NUMBER(2),
+    Course_CoordinatorID    NUMBER(2), --References itself to Staff_No
+    CourseStaff_NO          NUMBER(3) --FOREIGN KEY REFERENCING TO Staff_No in Academic_Staff
+    --CONSTRAINT Course_Staff_NO_FK FOREIGN KEY (CourseStaff_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+--PROGRAMME - COURSE TABLE
+
+CREATE TABLE ProgrammeCourse(
+    CourseCourse_Code    VARCHAR2(8), --PRIMARY KEY REFERENCING TO Course_Code in Course
+    ProgrammePrg_Code       VARCHAR2(40) --PRIMARY KEY REFERENCING TO Prg_Code in Programme
+    --CONSTRAINT Prg_Course_PK PRIMARY KEY (CourseCourse_Code, ProgrammePrg_Code),
+    --CONSTRAINT PG_Prg_Code_FK FOREIGN KEY (ProgrammePrg_Code) REFERENCES Programme (Prg_Code),
+    --CONSTRAINT PG_Course_Code_FK FOREIGN KEY (CourseCourse_Code) REFERENCES Course (Course_Code)
+);
+
+--STUDENT TABLE
+
+CREATE TABLE Student(
+    Stud_ID        NUMBER(8) PRIMARY KEY,
+    Stud_FName     CHAR(20),
+    Stud_LName     CHAR(20),
+    Stud_AdSt      VARCHAR(20),
+    Stud_AdTwn     VARCHAR(20),
+    Stud_AdPstCd   NUMBER(4),
+    Stud_DoB       DATE,
+    Stud_Gender    VARCHAR(20),
+    Stud_Loan      NUMBER(9),
+    StudPrg_Code   VARCHAR(40)
+    --CONSTRAINT Stud_Prg_Code_FK FOREIGN KEY (StudPrg_Code) REFERENCES Programme (Prg_Code)
+);
+
+--PERFORMANCE TABLE
+
+CREATE TABLE Performance(
+    PerfStud_ID        NUMBER(8) PRIMARY KEY, --PRIMARY KEY REFERENCING TO Stud_ID in Student
+    PerfCourse_Code    VARCHAR(8), --FOREIGN KEY REFERENCING TO Course_Code in Course
+    PerfPrg_Code       VARCHAR(20), --FOREIGN KEY REFERENCING TO Prg_Code in Programme
+    PerfCourse_Perf    VARCHAR(20),  --FOREIGN KEY REFERENCING TO Course_Perf in StudentCourse
+    Performance_Check  VARCHAR(20)
+    --CONSTRAINT Perf_Course_Code_FK (PerfCourse_Code) REFERENCES Course (Course_Code),
+    --CONSTRAINT Perf_Prg_Code_FK (PerfPrg_Code) REFERENCES Programme (Prg_Code),
+    --CONSTRAINT Perf_Course_Perf_FK (PerfCourse_Perf) REFERENCES StudentCourse (SCCourse_Perf)
+);
+
+--STUDENT - COURSE TABLE
+
+CREATE TABLE StudentCourse(
+    SCCourse_Perf    VARCHAR(20) PRIMARY KEY,  --PRIMARY KEY
+    SCStud_ID        NUMBER(8),    --FOREIGN KEY REFERENCING TO Stud_ID in Student
+    SCCourse_Code    VARCHAR(8)    --FOREIGN KEY REFERENCING TO Course_Code in Course
+    --CONSTRAINT SC_Stud_ID_FK FOREIGN KEY (SCStud_ID) REFERENCES Student (Stud_ID),
+    --CONSTRAINT SC_Course_Code_FK FOREIGN KEY (SCCourse_Code) REFERENCES Course (Course_Code)
+);
