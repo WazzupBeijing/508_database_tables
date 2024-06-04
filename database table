@@ -115,9 +115,87 @@ CREATE TABLE StudentCourse(
 );
 
 
+
+foreign key table alterations
+
 ALTER TABLE Emergency_Contact
 ADD CONSTRAINT fk_StudentStud_ID
 FOREIGN KEY (StudentStud_ID)
 REFERENCES Student (Stud_ID);
+
+ALTER TABLE Department
+ADD CONSTRAINT fk_Staff_No
+FOREIGN KEY (Staff_No)
+REFERENCES Academic_Staff (Staff_No);
+
+ALTER TABLE Programme
+ADD CONSTRAINT fk_Programme_Dep_Code
+FOREIGN KEY (Dep_Code)
+REFERENCES Department (Dep_Code);
+
+ALTER TABLE Programme
+ADD CONSTRAINT fk_Programme_Staff_No
+FOREIGN KEY (Staff_No)
+REFERENCES Academic_Staff (Staff_No);
+
+ALTER TABLE Staff_Hours_Track
+ADD CONSTRAINT fk_Staff_Hours_Staff_No
+FOREIGN KEY (Staff_No)
+REFERENCES Academic_Staff (Staff_No);
+
+ALTER TABLE Staff_Hours_Track
+ADD CONSTRAINT fk_Staff_Hours_Course_Code
+FOREIGN KEY (Course_Code)
+REFERENCES Course (Course_Code);
+
+ALTER TABLE Course
+ADD CONSTRAINT fk_Course_CoordinatorID
+FOREIGN KEY (Course_CoordinatorID)
+REFERENCES Academic_Staff (Staff_No);
+
+ALTER TABLE Course
+ADD CONSTRAINT fk_Course_Staff_No
+FOREIGN KEY (Staff_No)
+REFERENCES Academic_Staff (Staff_No);
+
+ALTER TABLE ProgrammeCourse
+ADD CONSTRAINT fk_ProgrammeCourse_Course_Code
+FOREIGN KEY (Course_Code)
+REFERENCES Course (Course_Code);
+
+ALTER TABLE ProgrammeCourse
+ADD CONSTRAINT fk_ProgrammeCourse_Prg_Code
+FOREIGN KEY (Prg_Code)
+REFERENCES Programme (Prg_Code);
+
+ALTER TABLE Student
+ADD CONSTRAINT fk_Student_Prg_Code
+FOREIGN KEY (Prg_Code)
+REFERENCES Programme (Prg_Code);
+
+ALTER TABLE Performance
+ADD CONSTRAINT fk_Performance_Stud_ID
+FOREIGN KEY (Stud_ID)
+REFERENCES Student (Stud_ID);
+
+ALTER TABLE Performance
+ADD CONSTRAINT fk_Performance_Course_Code
+FOREIGN KEY (Course_Code)
+REFERENCES Course (Course_Code);
+
+ALTER TABLE Performance
+ADD CONSTRAINT fk_Performance_Prg_Code
+FOREIGN KEY (Prg_Code)
+REFERENCES Programme (Prg_Code);
+
+ALTER TABLE StudentCourse
+ADD CONSTRAINT fk_StudentCourse_Stud_ID
+FOREIGN KEY (Stud_ID)
+REFERENCES Student (Stud_ID);
+
+ALTER TABLE StudentCourse
+ADD CONSTRAINT fk_StudentCourse_Course_Code
+FOREIGN KEY (Course_Code)
+REFERENCES Course (Course_Code);
 
 
