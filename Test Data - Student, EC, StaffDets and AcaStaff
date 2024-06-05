@@ -59,34 +59,34 @@ INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd
 VALUES ('Elizabeth', 'Rodriguez', '23 Beech Street', 'Hometown', 2033, 1230984567, 'Friend', 10000010);
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1001, TO_DATE('01-01-2010', 'DD-MM-YYYY'), 'Male', 59000, 'PhD');
+VALUES (101, TO_DATE('01-01-2010', 'DD-MM-YYYY'), 'Male', 59000, 'PhD');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1002, TO_DATE('15-02-2012', 'DD-MM-YYYY'), 'Female', 55000, 'Masters');
+VALUES (102, TO_DATE('15-02-2012', 'DD-MM-YYYY'), 'Female', 55000, 'Masters');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1003, TO_DATE('20-03-2011', 'DD-MM-YYYY'), 'Male', 52000, 'Bachelors');
+VALUES (103, TO_DATE('20-03-2011', 'DD-MM-YYYY'), 'Male', 52000, 'Bachelors');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1004, TO_DATE('10-04-2013', 'DD-MM-YYYY'), 'Female', 60000, 'PhD');
+VALUES (104, TO_DATE('10-04-2013', 'DD-MM-YYYY'), 'Female', 60000, 'PhD');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1005, TO_DATE('25-05-2014', 'DD-MM-YYYY'), 'Male', 58000, 'Masters');
+VALUES (105, TO_DATE('25-05-2014', 'DD-MM-YYYY'), 'Male', 58000, 'Masters');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1006, TO_DATE('30-06-2015', 'DD-MM-YYYY'), 'Female', 54000, 'Bachelors');
+VALUES (106, TO_DATE('30-06-2015', 'DD-MM-YYYY'), 'Female', 54000, 'Bachelors');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1007, TO_DATE('05-07-2016', 'DD-MM-YYYY'), 'Male', 62000, 'PhD');
+VALUES (107, TO_DATE('05-07-2016', 'DD-MM-YYYY'), 'Male', 62000, 'PhD');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1008, TO_DATE('12-08-2017', 'DD-MM-YYYY'), 'Female', 57000, 'Masters');
+VALUES (108, TO_DATE('12-08-2017', 'DD-MM-YYYY'), 'Female', 57000, 'Masters');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1009, TO_DATE('18-09-2018', 'DD-MM-YYYY'), 'Male', 49000, 'Bachelors');
+VALUES (109, TO_DATE('18-09-2018', 'DD-MM-YYYY'), 'Male', 49000, 'Bachelors');
 
 INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
-VALUES (1010, TO_DATE('22-10-2019', 'DD-MM-YYYY'), 'Female', 61000, 'PhD');
+VALUES (110, TO_DATE('22-10-2019', 'DD-MM-YYYY'), 'Female', 61000, 'PhD');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
 VALUES (101, 'John', 'Doe', 1234, 101, 'Professor');
