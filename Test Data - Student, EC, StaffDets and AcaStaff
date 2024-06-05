@@ -89,31 +89,31 @@ INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry,
 VALUES (110, TO_DATE('22-10-2019', 'DD-MM-YYYY'), 'Female', 61000, 'PhD');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (101, 'John', 'Doe', 1234, 101, 'Professor');
+VALUES (101, 'John', 'Doe', 1234, 201, 'Professor');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (102, 'Jane', 'Smith', 2345, 102, 'Associate Professor');
+VALUES (102, 'Jane', 'Smith', 2345, 202, 'Associate Professor');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (103, 'Robert', 'Brown', 3456, 103, 'Assistant Professor');
+VALUES (103, 'Robert', 'Brown', 3456, 203, 'Assistant Professor');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (104, 'Emily', 'Davis', 4567, 104, 'Lecturer');
+VALUES (104, 'Emily', 'Davis', 4567, 204, 'Lecturer');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (105, 'Michael', 'Wilson', 5678, 105, 'Senior Lecturer');
+VALUES (105, 'Michael', 'Wilson', 5678, 205, 'Senior Lecturer');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (106, 'Sarah', 'Moore', 6789, 106, 'Professor');
+VALUES (106, 'Sarah', 'Moore', 6789, 206, 'Professor');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (107, 'David', 'Taylor', 7890, 107, 'Associate Professor');
+VALUES (107, 'David', 'Taylor', 7890, 207, 'Associate Professor');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (108, 'Laura', 'Anderson', 8901, 108, 'Assistant Professor');
+VALUES (108, 'Laura', 'Anderson', 8901, 208, 'Assistant Professor');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (109, 'James', 'Thomas', 9012, 109, 'Lecturer');
+VALUES (109, 'James', 'Thomas', 9012, 209, 'Lecturer');
 
 INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
-VALUES (110, 'Patricia', 'Jackson', 1012, 110, 'Senior Lecturer');
+VALUES (110, 'Patricia', 'Jackson', 1012, 210, 'Senior Lecturer');
