@@ -25,7 +25,7 @@ CREATE TABLE Emergency_Contact(
 );
 
 CREATE TABLE Staff_Details(
-    StaffDe_NO    NUMBER(4),
+    StaffDe_NO    NUMBER(4) PRIMARY KEY,
     StaffDe_EpSt    DATE,
     StaffDe_Gndr    VARCHAR2(6),
     StaffDe_Slry    NUMBER(6),
@@ -33,13 +33,12 @@ CREATE TABLE Staff_Details(
 );
 
 CREATE TABLE Academic_Staff(
-    Staff_NO       NUMBER(3),
+    Staff_NO       NUMBER(4) PRIMARY KEY,
     Staff_FName    VARCHAR(20),
     Staff_LName    VARCHAR(20),
     Staff_PhExt    NUMBER(4),
     Staff_OffNo    NUMBER(3),
-    Staff_Pos      VARCHAR(20),
-    CONSTRAINT PK_Academic_Staff_StaffNO PRIMARY KEY (Staff_NO),
+    Staff_Pos      VARCHAR(20)
     CONSTRAINT CK_Staff_NO CHECK (STAFF_NO BETWEEN 000 AND 999)
 );
 
