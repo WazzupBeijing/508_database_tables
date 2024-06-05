@@ -1,0 +1,155 @@
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000001, 'Alice', 'Smith', '18 Main Street', 'Springfield', 2024, TO_DATE('15-01-1998', 'DD-MM-YYYY'), 'Female', 'YES');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000002, 'Bob', 'Johnson', '21 Queen Street', 'Greenville', 5678, TO_DATE('20-02-1997', 'DD-MM_YYYY'), 'Male', 'NO');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000003, 'Charlie', 'Brown', '2/21 Herswoth Street', 'Hilltown', 2018, TO_DATE('25-03-1999', 'DD-MM-YYYY'), 'Non-Binary', 'YES');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000004, 'David', 'Williams', '800 Pine Road', 'Lakeview', 3456, TO_DATE('30-04-2000', 'DD-MM-YYYY'), 'Male', 'NO');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000005, 'Emma', 'Davis', '2 Cedar Street', 'Riverside', 7890, TO_DATE('10-05-1998', 'DD-MM-YYYY'), 'Female', 'YES');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000006, 'Fiona', 'Garcia', '77 Maple Street', 'Brookfield', 2345, TO_DATE('15-06-1997', 'DD-MM_YYYY'), 'Female', 'NO');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000007, 'George', 'Martinez', '91 Birch Street', 'Sunnydale', 6789, TO_DATE('20-07-1999', 'DD-MM_YYYY'), 'Male', 'YES');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000008, 'Hannah', 'Lopez', '8/21 Ash Street', 'Mountainview', 1235, TO_DATE('25-08-2000', 'DD-MM_YYYY'), 'Female', 'NO');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000009, 'Ian', 'Clark', '901 Willow Street', 'Foresthill', 5679, TO_DATE('30-09-1998', 'DD-MM_YYYY'), 'Male', 'YES');
+
+INSERT INTO Student (Stud_ID, Stud_FName, Stud_LName, Stud_AdSt, Stud_AdTwn, Stud_AdPstCd, Stud_DoB, Stud_Gender, Stud_Loan)
+VALUES (10000010, 'Julia', 'Rodriguez', '62 Fir Street', 'Hometown', 9013, TO_DATE('10-10-1997', 'DD-MM_YYYY'), 'Female', 'NO');    
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('John', 'Smith', '18 Main Street', 'Springfield', 2024, 0215872254, 'Father', 10000001);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('Mary', 'Johnson', '21 Queen Street', 'Greenville', 5678, 042890058, 'Mother', 10000002);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('Robert', 'Brown', '67 Pine Road', 'Hilltown', 2018, 042214544, 'Uncle', 10000003);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('Patricia', 'Williams', '89 Maple Street', 'Lakeview', 3456, 0229052885, 'Aunt', 10000004);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('Michael', 'Davis', '12 Cedar Lane', 'Riverside', 7890, 277095472, 'Brother', 10000005);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('Linda', 'Garcia', '34 Birch Street', 'Sunnydale', 6789, 6789012345, 'Sister', 10000006);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('James', 'Martinez', '56 Ash Drive', 'Morningside', 2030, 7890123456, 'Cousin', 10000007);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('Barbara', 'Lopez', '78 Willow Way', 'Mountainview', 2031, 8901234567, 'Grandmother', 10000008);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('William', 'Clark', '90 Fir Street', 'Foresthill', 2032, 9012345678, 'Grandfather', 10000009);
+
+INSERT INTO Emergency_Contact (EC_FName, EC_LName, EC_AdSt, EC_AdTwn, EC_AdPstCd, EC_Ph, EC_Relationship, ECStud_ID)
+VALUES ('Elizabeth', 'Rodriguez', '23 Beech Street', 'Hometown', 2033, 1230984567, 'Friend', 10000010);
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (101, TO_DATE('01-01-2010', 'DD-MM-YYYY'), 'Male', 59000, 'PhD');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (102, TO_DATE('15-02-2012', 'DD-MM-YYYY'), 'Female', 55000, 'Masters');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (103, TO_DATE('20-03-2011', 'DD-MM-YYYY'), 'Male', 52000, 'Bachelors');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (104, TO_DATE('10-04-2013', 'DD-MM-YYYY'), 'Female', 60000, 'PhD');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (105, TO_DATE('25-05-2014', 'DD-MM-YYYY'), 'Male', 58000, 'Masters');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (106, TO_DATE('30-06-2015', 'DD-MM-YYYY'), 'Female', 54000, 'Bachelors');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (107, TO_DATE('05-07-2016', 'DD-MM-YYYY'), 'Male', 62000, 'PhD');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (108, TO_DATE('12-08-2017', 'DD-MM-YYYY'), 'Female', 57000, 'Masters');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (109, TO_DATE('18-09-2018', 'DD-MM-YYYY'), 'Male', 49000, 'Bachelors');
+
+INSERT INTO Staff_Details (StaffDe_NO, StaffDe_EpSt, StaffDe_Gndr, StaffDe_Slry, StaffDe_Qualf)
+VALUES (110, TO_DATE('22-10-2019', 'DD-MM-YYYY'), 'Female', 61000, 'PhD');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (101, 'John', 'Doe', 1234, 101, 'Professor');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (102, 'Jane', 'Smith', 2345, 102, 'Associate Professor');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (103, 'Robert', 'Brown', 3456, 103, 'Assistant Professor');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (104, 'Emily', 'Davis', 4567, 104, 'Lecturer');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (105, 'Michael', 'Wilson', 5678, 105, 'Senior Lecturer');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (106, 'Sarah', 'Moore', 6789, 106, 'Professor');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (107, 'David', 'Taylor', 7890, 107, 'Associate Professor');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (108, 'Laura', 'Anderson', 8901, 108, 'Assistant Professor');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (109, 'James', 'Thomas', 9012, 109, 'Lecturer');
+
+INSERT INTO Academic_Staff (Staff_NO, Staff_FName, Staff_LName, Staff_PhExt, Staff_OffNo, Staff_Pos)
+VALUES (110, 'Patricia', 'Jackson', 1012, 110, 'Senior Lecturer');
+
+INSERT INTO academic_staff (staff_no, staff_fname, staff_lname, staff_phext, staff_offno, staff_pos)
+VALUES (099, 'Gerald', 'Jeisen', 0822, 601, 'Lecturer');
+
+INSERT INTO Department (Dep_Code, Dep_Name, Dep_PhNo, Dep_Loc, Dep_HeadStart, Dep_HeadID, DepStaff_NO)
+VALUES ('DSCI824', 'Department of Science', '825-300-2735', 'Building A', TO_DATE('01-01-2015', 'DD-MM-YYYY'), 'HEAD001', 101);
+
+INSERT INTO Department (Dep_Code, Dep_Name, Dep_PhNo, Dep_Loc, Dep_HeadStart, Dep_HeadID, DepStaff_NO)
+VALUES ('DMTH213', 'Department of Mathematics', '123-456-7891', 'Building B', TO_DATE('15-02-2016', 'DD-MM-YYYY'), 'HEAD002', 102);
+
+INSERT INTO Department (Dep_Code, Dep_Name, Dep_PhNo, Dep_Loc, Dep_HeadStart, Dep_HeadID, DepStaff_NO)
+VALUES ('DART991', 'Department of Arts', '901-255-8222', 'Building C', TO_DATE('20-03-2017', 'DD-MM-YYYY'), 'HEAD003', 103);
+
+INSERT INTO Department (Dep_Code, Dep_Name, Dep_PhNo, Dep_Loc, Dep_HeadStart, Dep_HeadID, DepStaff_NO)
+VALUES ('DECO211', 'Department of Economics', '123-456-7893', 'Building D', TO_DATE('30-06-2020', 'DD-MM-YYYY'), 'HEAD004', 104);
+
+INSERT INTO Department (Dep_Code, Dep_Name, Dep_PhNo, Dep_Loc, Dep_HeadStart, Dep_HeadID, DepStaff_NO)
+VALUES ('DCS652', 'Department of Computer Science', '112-001-1859', 'Building E', TO_DATE('18-09-2012', 'DD-MM-YYYY'), 'HEAD009', 105);
+
+INSERT INTO Programme (Prg_Code, Prg_DrtrID, Prg_Lvl, Prg_Pts, Prg_Duratn, Prg_Cmps, Prg_Semt, PrgDep_Code, PrgStaff_NO)
+VALUES ('BS822', 101, 6, 360, '3', 'Main', 'Semester', 'DSCI824', 101);
+
+INSERT INTO Programme (Prg_Code, Prg_DrtrID, Prg_Lvl, Prg_Pts, Prg_Duratn, Prg_Cmps, Prg_Semt, PrgDep_Code, PrgStaff_NO)
+VALUES ('BIT902', 102, 7, 360, '3', 'Main', 'Quarter', 'DMTH213', 106);
+
+INSERT INTO Programme (Prg_Code, Prg_DrtrID, Prg_Lvl, Prg_Pts, Prg_Duratn, Prg_Cmps, Prg_Semt, PrgDep_Code, PrgStaff_NO)
+VALUES ('BSE323', 103, 5, 360, '3', 'Branch', 'Semester', 'DART991', 099);
+
+INSERT INTO Programme (Prg_Code, Prg_DrtrID, Prg_Lvl, Prg_Pts, Prg_Duratn, Prg_Cmps, Prg_Semt, PrgDep_Code, PrgStaff_NO)
+VALUES ('BCS114', 104, 8, 360, '3', 'Main', 'Trimester', 'DSCI824', 101);
+
+INSERT INTO Programme (Prg_Code, Prg_DrtrID, Prg_Lvl, Prg_Pts, Prg_Duratn, Prg_Cmps, Prg_Semt, PrgDep_Code, PrgStaff_NO)
+VALUES ('BS853', 105, 9, 360, '3', 'Main', 'Semester', 'DECO211', 108);
+
+INSERT INTO Programme (Prg_Code, Prg_DrtrID, Prg_Lvl, Prg_Pts, Prg_Duratn, Prg_Cmps, Prg_Semt, PrgDep_Code, PrgStaff_NO)
+VALUES ('BCS116', 106, 7, 360, '3', 'Branch', 'Quarter', 'DCS652', 206);
