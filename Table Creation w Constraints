@@ -1,0 +1,146 @@
+CREATE TABLE Student(
+    Stud_ID        NUMBER(8),
+    Stud_FName     CHAR(20),
+    Stud_LName     CHAR(20),
+    Stud_AdSt      VARCHAR2(20),
+    Stud_AdTwn     VARCHAR2(20),
+    Stud_AdPstCd   NUMBER(4),
+    Stud_DoB       DATE,
+    Stud_Gender    VARCHAR2(20),
+    Stud_Loan      CHAR(4),
+    StudPrg_Code   VARCHAR2(40),
+    CONSTRAINT PK_Student_StudID PRIMARY KEY (Stud_ID),
+    CONSTRAINT CK_Student_Loan CHECK (Stud_Loan IN ('YES' , 'NO'))
+    CONSTRAINT CK_Student_ID CHECK (Stud_ID BETWEEN 00000000 AND 99999999)
+);
+
+CREATE TABLE Emergency_Contact(
+    EC_FName         VARCHAR2(50),
+    EC_LName         VARCHAR2(50),
+    EC_AdSt          VARCHAR2(100),
+    EC_AdTwn         VARCHAR2(100),
+    EC_AdPstCd       NUMBER(4),
+    EC_Ph            NUMBER(20),
+    EC_Relationship  VARCHAR2(50),
+    ECStud_ID        NUMBER(8)
+);
+
+CREATE TABLE Staff_Details(
+    StaffDe_NO    NUMBER(3),
+    StaffDe_EpSt    DATE,
+    StaffDe_Gndr    VARCHAR2(6),
+    StaffDe_Slry    NUMBER(6),
+    StaffDe_Qualf    VARCHAR2(20),
+    CONSTRAINT FK_StaffDe_NO FOREIGN KEY (StaffDe_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+CREATE TABLE Academic_Staff(
+    Staff_NO       NUMBER(3),
+    Staff_FName    VARCHAR(20),
+    Staff_LName    VARCHAR(20),
+    Staff_PhExt    NUMBER(4),
+    Staff_OffNo    NUMBER(3),
+    Staff_Pos      VARCHAR(20),
+    CONSTRAINT PK_Academic_Staff_StaffNO PRIMARY KEY (Staff_NO),
+    CONSTRAINT CK_Staff_NO CHECK (STAFF_NO BETWEEN 000 AND 999)
+);
+
+CREATE TABLE Department (
+    Dep_Code       VARCHAR2(10),
+    Dep_Name       VARCHAR2(100),
+    Dep_PhNo       VARCHAR2(20),
+    Dep_Loc        VARCHAR2(100),
+    Dep_HeadStart  DATE,
+    Dep_HeadID     VARCHAR2(10),
+    DepStaff_NO    NUMBER(3),
+    CONSTRAINT PK_Department_DepCode PRIMARY KEY (Dep_Code),
+    CONSTRAINT UK_Department_DepHeadID UNIQUE (Dep_HeadID),
+    CONSTRAINT FK_Staff_NO FOREIGN KEY (DepStaff_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+CREATE TABLE Programme (
+    Prg_Code    VARCHAR(40),
+    Prg_DrtrID  NUMBER(3),
+    Prg_Lvl     NUMBER(1),
+    Prg_Pts     NUMBER(3),
+    Prg_Duratn  VARCHAR(1),
+    Prg_Cmps    VARCHAR(10),
+    Prg_Semt    VARCHAR(10),
+    PrgDep_Code    VARCHAR(10),
+    PrgStaff_NO    NUMBER(3),
+    CONSTRAINT PK_Programme_PrgCode PRIMARY KEY (Prg_Code),
+    CONSTRAINT UK_Programme_PrgDrtrID UNIQUE (Prg_DrtrID),
+    CONSTRAINT CK_Programme_PrgLvl CHECK (Prg_Lvl IN (5, 6, 7, 8, 9)),
+    CONSTRAINT CK_Programme_Pts CHECK (Prg_Pts = 360),
+    CONSTRAINT CK_Programme_Duratn CHECK (Prg_Duratn = 3),
+    CONSTRAINT FK_Programme_Dep_Code FOREIGN KEY (PrgDep_Code) REFERENCES DEPARTMENT (Dep_Code),
+    CONSTRAINT FK_Programme_Staff_NO FOREIGN KEY (PrgStaff_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+CREATE TABLE Staff_Hours_Track(
+    StaffCourse_Hours       NUMBER(2),
+    SHTStaff_NO             NUMBER(3),
+    SHTCourse_Code          VARCHAR(8),
+    CONSTRAINT FK_StaffHours_Staff_NO FOREIGN KEY (SHTStaff_NO) REFERENCES Academic_Staff (Staff_NO),
+    CONSTRAINT FK_StaffHours_Course_Code FOREIGN KEY (SHTCourse_Code) REFERENCES Course (Course_Code),
+    CONSTRAINT CK_StaffCourse_HoursTrack CHECK (StaffCourse_Hours < 168)
+);
+
+CREATE TABLE Course(
+    Course_Code             VARCHAR(8),
+    Course_Name             VARCHAR(40),
+    Course_Credits          NUMBER(2),
+    Course_CoordinatorID    NUMBER(2),
+    CourseStaff_NO          NUMBER(3),
+    CONSTRAINT PK_Course_CourseCode PRIMARY KEY (Course_Code),
+    CONSTRAINT CK_Course_CourseCredits CHECK (Course_Credits = 15),
+    CONSTRAINT FK_Course_CoordinatorID FOREIGN KEY (Course_CoordinatorID) REFERENCES Academic_Staff (Staff_NO),
+    CONSTRAINT FK_Course_Staff_NO FOREIGN KEY (CourseStaff_NO) REFERENCES Academic_Staff (Staff_NO)
+);
+
+CREATE TABLE ProgrammeCourse(
+    ProgrammePrg_Code    VARCHAR2(40),
+    CourseCourse_Code    VARCHAR2(8), 
+    CONSTRAINT PK_ProgrammeCourse_PrgCode PRIMARY KEY (ProgrammePrg_Code),
+    CONSTRAINT FK_ProgrammeCourse_Course_Code FOREIGN KEY (CourseCourse_Code) REFERENCES Course (Course_Code)
+);
+
+CREATE TABLE StudentCourse(
+    SCCourse_Perf    VARCHAR2(20),
+    SCStud_ID        NUMBER(8),
+    SCCourse_Code    VARCHAR2(8),
+    CONSTRAINT PK_StudCourse_SCCoursePerf PRIMARY KEY (SCCourse_Perf),
+    CONSTRAINT CK_StudentCourse_SCCoursePerf CHECK (SCCourse_Perf IN ('PASS', 'FAIL', 'NOT GRADED')),
+    CONSTRAINT FK_StudentCourse_Stud_ID FOREIGN KEY (SCStud_ID) REFERENCES Student (Stud_ID),
+    CONSTRAINT FK_StudentCourse_Course_Code FOREIGN KEY (SCCourse_Code) REFERENCES Course (Course_Code)  
+);
+
+CREATE TABLE Performance(
+    PerfStud_ID        NUMBER(8),
+    PerfCourse_Code    VARCHAR2(8),
+    PerfPrg_Code       VARCHAR2(20),
+    PerfCourse_Perf    VARCHAR2(20),
+    Performance_Check  VARCHAR2(20),
+    CONSTRAINT PK_Performance_PerfStudID PRIMARY KEY (PerfStud_ID),
+    CONSTRAINT CK_Performance_PerfCheck CHECK (Performance_Check IN ('YES', 'NO')),
+    CONSTRAINT FK_Performance_Stud_ID FOREIGN KEY (PerfStud_ID) REFERENCES Student (Stud_ID),
+    CONSTRAINT FK_Performance_Course_Code FOREIGN KEY (PerfCourse_Code) REFERENCES Course (Course_Code),
+    CONSTRAINT FK_Performance_Prg_Code FOREIGN KEY (PerfPrg_Code) REFERENCES Programme (Prg_Code)
+);
+
+ALTER TABLE Student
+ADD CONSTRAINT FK_Student_Prg_Code 
+FOREIGN KEY (StudPrg_Code) 
+REFERENCES Programme (Prg_Code);
+
+ALTER TABLE Emergency_Contact
+ADD CONSTRAINT FK_StudentStud_ID
+FOREIGN KEY (ECStud_ID)
+REFERENCES Student (Stud_ID);
+
+ALTER TABLE Staff_Details
+ADD CONSTRAINT FK_StaffDet_StaffNO
+FOREIGN KEY (StaffDe_NO)
+REFERENCES Academic_Staff (Staff_NO);
+
+COMMIT;
